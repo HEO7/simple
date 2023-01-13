@@ -1,0 +1,386 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Rusyada Eðitim</title>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<meta name="author" content="By Erkan">
+<meta name="description" content="Teknik Universte de Okumaya Ne Dersinz? ">
+<meta name="keywords" content="rusya,russia,,egitim,universite,universitet,okul,nijniy,moskova,novgorod,rusca,okumak,ukrayna,ukrain,rus kizlari,girl,egitim,universte,rusyada egitim,rusya da okumak,parali universte,rusyada hayat,oss siz universte,oss sinavi,sinavsiz universte,yurtdisi,yurtdisinda okumak,work and travel,teknik universte">
+<meta name="generator" content="Web Page Maker">
+<meta http-equiv="Page-Enter" content="revealTrans(Duration=0,Transition=23)">
+
+<style type="text/css">
+/*----------Text Styles----------*/
+.ws6 {font-size: 8px;}
+.ws7 {font-size: 9.3px;}
+.ws8 {font-size: 11px;}
+.ws9 {font-size: 12px;}
+.ws10 {font-size: 13px;}
+.ws11 {font-size: 15px;}
+.ws12 {font-size: 16px;}
+.ws14 {font-size: 19px;}
+.ws16 {font-size: 21px;}
+.ws18 {font-size: 24px;}
+.ws20 {font-size: 27px;}
+.ws22 {font-size: 29px;}
+.ws24 {font-size: 32px;}
+.ws26 {font-size: 35px;}
+.ws28 {font-size: 37px;}
+.ws36 {font-size: 48px;}
+.ws48 {font-size: 64px;}
+.ws72 {font-size: 96px;}
+.wpmd {font-size: 13px;font-family: 'Arial';font-style: normal;font-weight: normal;}
+/*----------Para Styles----------*/
+DIV,UL,OL /* Left */
+{
+ margin-top: 0px;
+ margin-bottom: 0px;
+}
+</style>
+
+
+<script language="JavaScript1.4" type="text/javascript">
+<!--
+function jsPlay(soundobj) {
+ var thissound= eval("document."+soundobj);
+ try {
+     thissound.Play();
+ }
+ catch (e) {
+     thissound.DoPlay();
+ }
+}
+//-->
+</script>
+
+<script language="javascript" type="text/javascript">
+<!--
+function MM_swapImgRestore() {
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() {
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) {
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() {
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+//-->
+</script>
+
+</head>
+
+<body Text="#FFFFFF" bgColor="#000000">
+<script LANGUAGE="JavaScript">
+<!--
+// image src
+var trailsrc = "images/js10638254.gif";
+
+var nDots = 7;
+var Xbpos = 0;
+var Ybpos = 0;
+
+// fixed time step, no relation to real time
+var DELTAT = .01;
+// size of one spring in pixels
+var SEGLEN = 10;
+// spring constant, stiffness of springs
+var SPRINGK = 10;
+// all the physics is bogus, just picked stuff to make it look okay
+var MASS = 1;
+// Positive XGRAVITY pulls right, negative pulls left
+// Positive YGRAVITY pulls down, negative up
+var XGRAVITY = 0;
+var YGRAVITY = 50;
+// RESISTANCE determines a slowing force proportional to velocity
+var RESISTANCE = 10;
+// stopping criterea to prevent endless jittering
+// doesn't work when sitting on bottom since floor
+// doesn't push back so acceleration always as big
+// as gravity
+var STOPVEL = 0.1;
+var STOPACC = 0.1;
+var DOTSIZE = 11;
+// BOUNCE is percent of velocity retained when 
+// bouncing off a wall
+var BOUNCE = 0.75;
+
+var ff=(document.getElementById&&!document.all);
+var ns=(document.layers);
+var ie=(document.all);
+
+// always on for now, could be played with to
+// let dots fall to botton, get thrown, etc.
+var followmouse = true;
+var dots = new Array();
+
+function init()
+{
+    var i = 0;
+    for (i = 0; i < nDots; i++) {
+        dots[i] = new dot(i);
+    }
+    
+    // set their positions
+    for (i = 0; i < nDots; i++) {
+        dots[i].obj.left = dots[i].X;
+        dots[i].obj.top = dots[i].Y;
+    }
+    
+    setTimeout("startanimate()", 10);
+}
+
+function dot(i) 
+{
+	this.X  = Xbpos;
+	this.Y  = Ybpos;
+	this.dx = 0;
+	this.dy = 0;
+	
+	if (ns){
+	  document.write("<layer id=\"mtrail"+ i +"\" ><img src='"+trailsrc+"' border=\"0\"><\/layer>");
+	} else if (ie||ff) {
+	if (i == 0) {
+	  document.write("<div id=\"mtrail"+ i +"\" style=\"POSITION: absolute;z-index:999;VISIBILITY: hidden;\"><img src='"+trailsrc+"' border=\"0\"><\/div>");
+	} else {
+          document.write("<div id=\"mtrail"+ i +"\" style=\"POSITION: absolute; z-index:999;\"><img src='"+trailsrc+"' border=\"0\"><\/div>");
+        }
+        }	
+	
+	if (ie) 
+	{
+		this.obj = eval("mtrail" + i + ".style");
+	} else if (ff) 
+	{
+		this.obj = document.getElementById("mtrail" + i).style;
+	}
+	else
+	{
+		this.obj = eval("document.mtrail" + i);
+	}
+}
+
+function startanimate() {	
+    setInterval("animate()", 20);
+}
+
+// just save mouse position for animate() to use
+function MoveHandler(e)
+{
+    if (ie) {
+    	Xbpos = window.event.clientX + document.body.scrollLeft;
+    	Ybpos = window.event.clientY + document.body.scrollTop;
+    }
+    else {
+    	Xbpos = e.pageX;
+    	Ybpos = e.pageY;
+    }
+}
+
+function vec(X, Y)
+{
+    this.X = X;
+    this.Y = Y;
+}
+
+// adds force in X and Y to spring for dot[i] on dot[j]
+function springForce(i, j, spring)
+{
+    var dx = (dots[i].X - dots[j].X);
+    var dy = (dots[i].Y - dots[j].Y);
+    var len = Math.sqrt(dx*dx + dy*dy);
+    if (len > SEGLEN) {
+        var springF = SPRINGK * (len - SEGLEN);
+        spring.X += (dx / len) * springF;
+        spring.Y += (dy / len) * springF;
+    }
+}
+
+
+function animate() {	
+    // dots[0] follows the mouse,
+    // though no dot is drawn there
+    var start = 0;
+    if (followmouse) {
+        dots[0].X = Xbpos;
+        dots[0].Y = Ybpos;	
+        start = 1;
+    }
+    
+    for (i = start ; i < nDots; i++ ) {
+        
+        var spring = new vec(0, 0);
+        if (i > 0) {
+            springForce(i-1, i, spring);
+        }
+        if (i < (nDots - 1)) {
+            springForce(i+1, i, spring);
+        }
+        
+        // air resisitance/friction
+        var resist = new vec(-dots[i].dx * RESISTANCE,
+            -dots[i].dy * RESISTANCE);
+        
+        // compute new accel, including gravity
+        var accel = new vec((spring.X + resist.X)/MASS + XGRAVITY,
+            (spring.Y + resist.Y)/ MASS + YGRAVITY);
+        
+        // compute new velocity
+        dots[i].dx += (DELTAT * accel.X);
+        dots[i].dy += (DELTAT * accel.Y);
+        
+        // stop dead so it doesn't jitter when nearly still
+        if (Math.abs(dots[i].dx) < STOPVEL &&
+            Math.abs(dots[i].dy) < STOPVEL &&
+            Math.abs(accel.X) < STOPACC &&
+            Math.abs(accel.Y) < STOPACC) {
+            dots[i].dx = 0;
+            dots[i].dy = 0;
+        }
+        
+        // move to new position
+        dots[i].X += dots[i].dx;
+        dots[i].Y += dots[i].dy;
+        
+        // get size of window
+        var height, width;
+        if (!ie) {
+            height = window.innerHeight + window.pageYOffset;
+            width = window.innerWidth + window.pageXOffset;
+        } else {	
+            height = document.body.clientHeight + document.body.scrollTop;
+            width = document.body.clientWidth + document.body.scrollLeft;
+        }
+        
+        // bounce off 3 walls (leave ceiling open)
+        if (dots[i].Y >=  height - DOTSIZE - 1) {
+            if (dots[i].dy > 0) {
+                dots[i].dy = BOUNCE * -dots[i].dy;
+            }
+            dots[i].Y = height - DOTSIZE - 1;
+        }
+        if (dots[i].X >= width - DOTSIZE) {
+            if (dots[i].dx > 0) {
+                dots[i].dx = BOUNCE * -dots[i].dx;
+            }
+            dots[i].X = width - DOTSIZE - 1;
+        }
+        if (dots[i].X < 0) {
+            if (dots[i].dx < 0) {
+                dots[i].dx = BOUNCE * -dots[i].dx;
+            }
+            dots[i].X = 0;
+        }
+        
+        // move img to new position
+        dots[i].obj.left = dots[i].X;			
+        dots[i].obj.top =  dots[i].Y;		
+    }
+}
+
+init();
+if(ns)window.captureEvents(Event.MOUSEMOVE);
+document.onmousemove = MoveHandler;
+-->
+</script>
+
+<div id="hr1" style="position:absolute; overflow:hidden; left:134px; top:229px; width:998px; height:19px; z-index:0">
+<hr size=2 width=998>
+</div>
+
+<div id="text1" style="position:absolute; overflow:hidden; left:215px; top:124px; width:855px; height:106px; z-index:1">
+<div class="wpmd">
+<div><font color="#FF0000" face="Segoe UI" class="ws28"><B>im.r.e Aleksieva Nijniy Novgorod Devlet Teknik</B></font></div>
+<div><font color="#FF0000" face="Segoe UI" class="ws28"><B>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&#220;niversitesi</B></font></div>
+</div></div>
+
+<div id="image1" style="position:absolute; overflow:hidden; left:135px; top:123px; width:76px; height:107px; z-index:2"><img src="images/alekseev.jpg" alt="" title="" border=0 width=76 height=107></div>
+
+<div id="image2" style="position:absolute; overflow:hidden; left:1052px; top:124px; width:79px; height:106px; z-index:3"><img src="images/800px-Flag_of_Nizhny_Novgorod_Region_svg.png" alt="" title="" border=0 width=79 height=106></div>
+
+<div id="image3" style="position:absolute; overflow:hidden; left:132px; top:245px; width:48px; height:30px; z-index:4"><img src="images/TURK0001[2].gif" alt="" title="" border=0 width=48 height=30></div>
+
+<div id="image4" style="position:absolute; overflow:hidden; left:1089px; top:245px; width:43px; height:30px; z-index:5"><a href="http://www.nntu.ru"><img src="images/RUSS0001[1].gif" alt="" title="" border=0 width=43 height=30></a></div>
+
+<div id="image5" style="position:absolute; overflow:hidden; left:134px; top:38px; width:997px; height:86px; z-index:6"><img src="images/toppicnew-01.jpg" alt="" title="" border=0 width=997 height=86></div>
+
+<div id="hr2" style="position:absolute; overflow:hidden; left:134px; top:20px; width:997px; height:17px; z-index:7">
+<hr size=2 width=997>
+</div>
+
+<div id="nav10d" style="position:absolute; left:182px; top:245px; z-index:8"><a onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('nav10','','images/nav35948710a.gif',1)" href="index.html"><img name="nav10" onLoad="MM_preloadImages('images/nav35948710a.gif')" alt="" border=0 src="images/nav35948710i.gif"></a></div>
+<div id="nav11d" style="position:absolute; left:363px; top:245px; z-index:8"><a onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('nav11','','images/nav35948711a.gif',1)" href="ucretler.html"><img name="nav11" onLoad="MM_preloadImages('images/nav35948711a.gif')" alt="" border=0 src="images/nav35948711i.gif"></a></div>
+<div id="nav12d" style="position:absolute; left:544px; top:245px; z-index:8"><a onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('nav12','','images/nav35948712a.gif',1)" href="foto g.html"><img name="nav12" onLoad="MM_preloadImages('images/nav35948712a.gif')" alt="" border=0 src="images/nav35948712i.gif"></a></div>
+<div id="nav13d" style="position:absolute; left:725px; top:245px; z-index:8"><a onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('nav13','','images/nav35948713a.gif',1)" href="kayýtevrak.html"><img name="nav13" onLoad="MM_preloadImages('images/nav35948713a.gif')" alt="" border=0 src="images/nav35948713i.gif"></a></div>
+<div id="nav14d" style="position:absolute; left:906px; top:245px; z-index:8"><a onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('nav14','','images/nav35948714a.gif',1)" href="iletisim.html"><img name="nav14" onLoad="MM_preloadImages('images/nav35948714a.gif')" alt="" border=0 src="images/nav35948714i.gif"></a></div>
+
+<div id="text2" style="position:absolute; overflow:hidden; left:393px; top:348px; width:523px; height:85px; z-index:9">
+<div class="wpmd">
+<div><font color="#FF0000" face="Segoe UI" class="ws20"><B>Nijniy Novgorod Devlet &#220;niversitesi</B></font></div>
+<div><font color="#FF0000" face="Segoe UI" class="ws20"><B>&nbsp; &nbsp; &nbsp;Politekni&#231;eskiy &#220;niversitet</B></font></div>
+</div></div>
+
+<div id="text3" style="position:absolute; overflow:hidden; left:315px; top:465px; width:619px; height:805px; z-index:10">
+<div class="wpmd">
+<div><font color="#FF0000" face="Segoe UI" class="ws11">"Nijniy Novgorod" Rusya n&#305;n moskova ve petersburg tan sonra gelen 3. b&#252;y&#252;k &#351;ehridir.</font></div>
+<div><font color="#FF0000" face="Segoe UI" class="ws11">&#351;ehirde bir &#231;ok farkl&#305; &#252;lkeden insan ya&#351;amaktad&#305;r. &#351;ehir eski bir yap&#305;ya sahip olmas&#305;na ra&#287;men olduk&#231;a g&#252;zel ve b&#252;y&#252;kt&#252;r.</font></div>
+<div><font color="#FF0000" face="Segoe UI" class="ws11">Politeknik &#252;niversitesi bir teknik &#252;niversite olup ayn&#305; zamanda da nijniy novgorodtaki tek teknik &#252;niversitedir.. Rusya da bulunan &#252;niversiteler aras&#305;nda prestij ve kalite bak&#305;m&#305;ndan &#246;nemli bir yere sahiptir. Politeknik &#252;niversitesi 6 bina dan olu&#351;maktad&#305;r. Yabanc&#305; &#246;&#287;rencilerin dersleri genellikle 1. ve 6. binada g&#246;r&#252;lmektedir. Spor dersleri i&#231;in ise 4. bina kullan&#305;lmaktad&#305;r. 1. bina yani ana bina &#351;ehir merkezinde bulunmaktad&#305;r ve buraya heryerden t&#252;m vas&#305;talar arac&#305;l&#305;&#287;&#305;yla ula&#351;&#305;m olduk&#231;a kolayd&#305;r.</font></div>
+<div><font color="#FF0000" face="Segoe UI" class="ws11">Nijniy novgorod ta olduk&#231;a fazla yabanc&#305; &#246;&#287;renci okumaktad&#305;r. Bunlar&#305;n b&#252;y&#252;k bir &#231;o&#287;unlu&#287;unu &#231;in ve Afrika &#252;lkelerinden gelen &#246;&#287;renciler olusturmaktad&#305;r. Genel olarak &#351;ehirde olduk&#231;a fazla t&#252;rk bulunmaktad&#305;r her nekadar okuyan t&#252;rk say&#305;s&#305; az olsada hemen hemen her &#252;niversitede t&#252;rk &#246;&#287;renci g&#246;rmek m&#252;mk&#252;nd&#252;r.</font></div>
+<div><font color="#FF0000" face="Segoe UI" class="ws11">Politeknik &#252;niversitesinde dersler rus&#231;a olarak verilmektedir iste&#287;e ba&#287;l&#305; ingilizce olarakta ders g&#246;rmek m&#252;mk&#252;nd&#252;r. E&#287;er 4 y&#305;ll&#305;k lisans i&#231;in ba&#351;vurmak istiyorsan&#305;z &nbsp;&#246;ncelikle &#252;niversitenin haz&#305;rl&#305;k b&#246;l&#252;m&#252;nde 1 y&#305;l &#246;&#287;renim g&#246;rd&#252;kten ve yeterlilik belgesini ald&#305;ktan sonra 1. s&#305;n&#305;fta okumaya hak kazan&#305;rs&#305;n&#305;z aksi takdirde yeniden haz&#305;rl&#305;k s&#305;n&#305;f&#305;nda okumak durumundas&#305;n&#305;z. Dersler 5-6 kisilik gruplar halinde i&#351;lenmektedir ve hafta i&#231;i herg&#252;n olmaktad&#305;r (programa g&#246;re de&#287;i&#351;mektedir).</font></div>
+<div><font color="#FF0000" face="Segoe UI" class="ws11"><BR></font></div>
+<div><font color="#FF0000" face="Segoe UI" class="ws11">&#214;&#287;renciler genellikle rusyadaki ilk y&#305;llar&#305;nda yurtlar&#305; tercih etmektedirler. Hem &#351;ehre al&#305;&#351;mak a&#231;&#305;s&#305;ndan hemde dillerini geli&#351;tirmek a&#231;&#305;s&#305;ndan yurtta ya&#351;amak ilk y&#305;l i&#231;in b&#252;y&#252;k bir art&#305; say&#305;l&#305;r. Politeknik &#252;niversitesinin yurtlar&#305; di&#287;er yurtlara g&#246;re biraz daha pahal&#305; olmas&#305;na kar&#351;&#305;l&#305;k daha iyi ve konforludur. Burada yabanc&#305;lar b&#246;l&#252;m&#252;nde odalar iki ve tek ki&#351;ilik olarak dizayn edilmi&#351;tir ve blok halinde bulunmaktad&#305;r daha a&#231;&#305;k s&#246;yleyecek olursak burada her iki odaya bi tuvalet ve banyo olarak dizayn edilmistir. Di&#287;er yurtlardaki gibi tuvalet ve banyo ortak olarak herkes taraf&#305;ndan kullan&#305;lmamaktad&#305;r. Buda rahat bi kullan&#305;m olana&#287;&#305; sa&#287;lamaktad&#305;r. &#246;rne&#287;in du&#351; yapmak i&#231;in s&#305;ra beklemek zorunda kalmazs&#305;n&#305;z.</font></div>
+<div><font color="#FF0000" face="Segoe UI" class="ws11"><BR></font></div>
+<div><font color="#FF0000" face="Segoe UI" class="ws11">Rusya da para birimi olarak ruble kullan&#305;lmaktad&#305;r. Dolar &#252;zerinden hesaplayacak olursak &nbsp;1 dolar yakla&#351;&#305;k olarak 32-35 ruble civar&#305;nda bi rakama denk gelmektedir.</font></div>
+<div><font color="#FF0000" face="Segoe UI" class="ws11">Nijniy Novgorod ta hayat t&#252;rkiye den biraz da olsa pahal&#305;d&#305;r bu biraz da d&#246;viz kur una ba&#287;l&#305; olmakla beraber ki&#351;inin nas&#305;l vakit ge&#231;irdi&#287;iylede yak&#305;ndan alakal&#305;d&#305;r.</font></div>
+<div><font color="#FF0000" face="Segoe UI" class="ws11">Normal bi &#246;&#287;renci normal &#351;artlarda ayda 250-350 dolar aras&#305;nda masraf &#231;&#305;karmaktad&#305;r.</font></div>
+<div><font color="#FF0000" face="Segoe UI" class="ws11">Elimden geldi&#287;ince a&#231;&#305;klamaya &#231;al&#305;&#351;t&#305;m:)ama yinede</font></div>
+<div><font color="#FF0000" face="Segoe UI" class="ws11"><BR></font></div>
+<div><font color="#FF0000" face="Segoe UI" class="ws11">KAFANIZA TAKILAN BISEY OLURSA EGER MESAJ ATARAK &nbsp;&#246;GRENEBILIRSINIZ!!!</font></div>
+<div><font color="#FF0000" face="Segoe UI" class="ws11"><BR></font></div>
+<div><font color="#FF0000" face="Segoe UI" class="ws11"><BR></font></div>
+<div><font color="#FF0000" face="Segoe UI" class="ws11"><BR></font></div>
+<div><font color="#FF0000" face="Segoe UI" class="ws11"><BR></font></div>
+<div><font color="#FF0000" face="Segoe UI" class="ws11"><BR></font></div>
+</div></div>
+
+<div id="text4" style="position:absolute; overflow:hidden; left:1031px; top:472px; width:177px; height:109px; z-index:11">
+<div class="wpmd">
+<div><font face="Segoe UI" class="ws12"><a href="harita uydu.html#yahoo map" title="">D&#252;nya Haritasina Bakabilirsiniz TIKLAYINIZ!!!</a></font></div>
+</div></div>
+
+<div id="html1" style="position:absolute; overflow:hidden; left:1027px; top:626px; width:98px; height:51px; z-index:12">
+<script language="javascript">
+<!--
+alert("---hadirusyaya--- Hosgeldiniz...")
+window.status="---hadirusyaya--- Sayfama Hosgeldiniz..."
+-->
+</script>
+</div>
+
+<div id="html2" style="position:absolute; overflow:hidden; left:997px; top:310px; width:155px; height:155px; z-index:13">
+<center><a href="http://selfaccess.org/index.php/ziyaretci-bilgileri" _fcksavedurl="http://selfaccess.org/index.php/ziyaretci-bilgileri" _fcksavedurl="http://selfaccess.org/index.php/ziyaretci-bilgileri" _fcksavedurl="http://selfaccess.org/index.php/ziyaretci-bilgileri" _fcksavedurl="http://selfaccess.org/index.php/ziyaretci-bilgileri" _fcksavedurl="http://selfaccess.org/index.php/ziyaretci-bilgileri" _fcksavedurl="http://selfaccess.org/index.php/ziyaretci-bilgileri" _fcksavedurl="http://selfaccess.org/index.php/ziyaretci-bilgileri" _fcksavedurl="http://selfaccess.org/index.php/ziyaretci-bilgileri" _fcksavedurl="http://selfaccess.org/index.php/ziyaretci-bilgileri" _fcksavedurl="http://selfaccess.org/index.php/ziyaretci-bilgileri" _fcksavedurl="http://selfaccess.org/index.php/ziyaretci-bilgileri" _fcksavedurl="http://selfaccess.org/index.php/ziyaretci-bilgileri" _fcksavedurl="http://selfaccess.org/index.php/ziyaretci-bilgileri" _fcksavedurl="http://selfaccess.org/index.php/ziyaretci-bilgileri" _fcksavedurl="http://selfaccess.org/index.php/ziyaretci-bilgileri"><img src="http://www.wieistmeineip.de/ip-address" _fcksavedurl="http://www.wieistmeineip.de/ip-address" _fcksavedurl="http://www.wieistmeineip.de/ip-address" _fcksavedurl="http://www.wieistmeineip.de/ip-address" _fcksavedurl="http://www.wieistmeineip.de/ip-address" _fcksavedurl="http://www.wieistmeineip.de/ip-address" _fcksavedurl="http://www.wieistmeineip.de/ip-address" _fcksavedurl="http://www.wieistmeineip.de/ip-address" _fcksavedurl="http://www.wieistmeineip.de/ip-address" _fcksavedurl="http://www.wieistmeineip.de/ip-address" _fcksavedurl="http://www.wieistmeineip.de/ip-address" _fcksavedurl="http://www.wieistmeineip.de/ip-address" _fcksavedurl="http://www.wieistmeineip.de/ip-address" _fcksavedurl="http://www.wieistmeineip.de/ip-address" _fcksavedurl="http://www.wieistmeineip.de/ip-address" _fcksavedurl="http://www.wieistmeineip.de/ip-address" alt="Bilgileriniz sistemimize kaydedilmektedir." /></a></center></div>
+
+<div id="text5" style="position:absolute; overflow:hidden; left:776px; top:1323px; width:338px; height:40px; z-index:14">
+<div class="wpmd">
+<div><font color="#FF0000" face="Segoe UI">&#169; Copyright 2011 HadiRusyaya. T&#252;m haklar&#305; sakl&#305;d&#305;r.</font></div>
+<div><font color="#FF0000" face="Segoe UI">&nbsp;-------------------------Tasar&#305;m by Erkan----------------------------</font></div>
+</div></div>
+
+<div id="html3" style="position:absolute; overflow:hidden; left:137px; top:292px; width:162px; height:125px; z-index:15">
+</******>  <P align=center><FONT size=4><SPAN style="FONT-SIZE: 12pt; FONT-FAMILY: 'Times New Roman'; mso-fareast-font-family: 'Times New Roman'; mso-ansi-language: FR; mso-fareast-language: FR; mso-bidi-language: AR-SA">Bu sayfada </SPAN> <IMG src="http://img332.imageshack.us/img332/2599/12pa.gif" _fcksavedurl="http://img332.imageshack.us/img332/2599/12pa.gif" _fcksavedurl="http://img332.imageshack.us/img332/2599/12pa.gif"><IMG src="http://img332.imageshack.us/img332/1098/29zu.gif" _fcksavedurl="http://img332.imageshack.us/img332/1098/29zu.gif" _fcksavedurl="http://img332.imageshack.us/img332/1098/29zu.gif"><FONT color=#617985><FONT face=Arial><b> </b><SPAN style="FONT-SIZE: 12pt; FONT-FAMILY: 'Times New Roman'; mso-fareast-font-family: 'Times New Roman'; mso-ansi-language: FR; mso-fareast-language: FR; mso-bidi-language: AR-SA"><FONT color=#617985>dakika </FONT></SPAN></FONT><FONT face="Lucida Handwriting, Cursiva"> <IMG src="http://img332.imageshack.us/img332/9757/32ow.gif" _fcksavedurl="http://img332.imageshack.us/img332/9757/32ow.gif" _fcksavedurl="http://img332.imageshack.us/img332/9757/32ow.gif"><IMG src="http://img332.imageshack.us/img332/8940/46qo.gif" _fcksavedurl="http://img332.imageshack.us/img332/8940/46qo.gif" _fcksavedurl="http://img332.imageshack.us/img332/8940/46qo.gif"> <SPAN style="FONT-SIZE: 12pt; FONT-FAMILY: 'Times New Roman'; mso-fareast-font-family: 'Times New Roman'; mso-ansi-language: FR; mso-fareast-language: FR; mso-bidi-language: AR-SA"><FONT color=#617985>saniye misafirim oldunuz .....</FONT></SPAN></FONT></FONT></FONT></P> <head></div>
+
+</body>
+</html>
